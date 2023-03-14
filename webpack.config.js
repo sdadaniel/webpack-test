@@ -5,15 +5,17 @@ module.exports = {
   mode: "development",
   entry: { src1: "./source1/index.js", src2: "./source2/index.js" },
   output: {
-    path: path.resolve(__dirname, "build"),
+    path: path.resolve(__dirname, "dist"),
     filename: "[name].bundle.js",
   },
   module: {
     rules: [
+      // css 로더
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
+      // scss,sass
       {
         test: /\.s[ac]ss$/i,
         use: ["style-loader", "css-loader", "sass-loader"],
